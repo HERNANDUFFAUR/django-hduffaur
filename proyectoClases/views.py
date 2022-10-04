@@ -46,17 +46,17 @@ def prueba_template(request):
     
     return HttpResponse(template_renderizado)
 
-def crear_persona(request,nombre,apellido):
-    persona = Persona(nombre=nombre, 
-                      apellido=apellido, 
-                      edad=random.randrange(10,98), 
-                      fecha_nacimiento=datetime.now())
+# def crear_persona(request,nombre,apellido):
+#     persona = Persona(nombre=nombre, 
+#                       apellido=apellido, 
+#                       edad=random.randrange(10,98), 
+#                       fecha_nacimiento=datetime.now())
     
-    persona.save()
+#     persona.save()
         
-    template = loader.get_template('crear_persona.html')
-    template_renderizado = template.render({'personas': persona})
-    return HttpResponse(template_renderizado)
+#     template = loader.get_template('crear_persona.html')
+#     template_renderizado = template.render({'personas': persona})
+#     return HttpResponse(template_renderizado)
 
 def ver_personas(request):
     personas = Persona.objects.all() 
@@ -64,4 +64,26 @@ def ver_personas(request):
     template = loader.get_template('ver_personas.html')
     template_renderizado = template.render({'personas': personas})
        
+    return HttpResponse(template_renderizado)
+
+def crear_personas(request):
+    persona1 = Persona(nombre='Hernan', 
+                      apellido='Caire', 
+                      edad=random.randrange(10,98), 
+                      fecha_alta=datetime.now())
+    persona2 = Persona(nombre='Cristian', 
+                      apellido='Castro', 
+                      edad=random.randrange(10,98), 
+                      fecha_alta=datetime.now())
+    persona3 = Persona(nombre='Increible', 
+                      apellido='Hulk', 
+                      edad=random.randrange(10,98), 
+                      fecha_alta=datetime.now())
+    
+    persona1.save()
+    persona2.save()
+    persona3.save()
+        
+    template = loader.get_template('crear_personas.html')
+    template_renderizado = template.render({})
     return HttpResponse(template_renderizado)
