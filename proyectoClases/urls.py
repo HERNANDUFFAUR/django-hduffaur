@@ -22,6 +22,7 @@ urlpatterns = [
     path('fecha/', views.fecha),
     path('mi-template/', views.mi_template),
     path('mi-template/<str:nombre>', views.tu_template),
+    path('prueba-template/', views.prueba_template),
     path('hola/', views.hola ),
     path('admin/', admin.site.urls),
 ]
